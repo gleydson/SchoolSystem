@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { Administrator } from './../administrator/administrator';
+import { Constants } from './../util/constants.util';
 
 @Injectable()
 export class AuthenticationService {
@@ -15,8 +18,8 @@ export class AuthenticationService {
         private router: Router
     ) { }
 
-    public login(admin : Administrator) {  
-        return this.http.post('http://localhost:8080/login', admin, this.options())
+    public login(admin : Administrator) {
+        return this.http.post(`${Constants.URL_BASE}${Constants.URL_LOGIN}`, {username : admin.username, password : admin.password}, this.headers())
         .map((response : Response) => {
             if (response.status == 200) {
                 AuthenticationService.adminAuthStatus = true;
@@ -27,9 +30,8 @@ export class AuthenticationService {
         .catch((error : Response) => Observable.throw(error));
     }
 
-    public options() {
-        let headers = new Headers({'Content-Type' : 'application/json'});
-        return new RequestOptions({ headers: headers });
+    private headers() {
+        return new RequestOptions({ headers: new Headers({'Content-Type' : 'application/json'}) });
     }
 
     public logout() {
@@ -54,10 +56,10 @@ export class AuthenticationService {
         localStorage.removeItem('token');
     }
 
-    public header() : RequestOptions {
+    private header() : RequestOptions {
         let headers = new Headers({
-            'Authorization'               : this.getLocalToken(),
-            'Content-Type'                : 'application/json'
+            'Authorization' : this.getLocalToken(),
+            'Content-Type'  : 'application/json'
         });
         return new RequestOptions({ headers: headers });
     }
