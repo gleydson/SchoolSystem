@@ -24,8 +24,8 @@ export class LoginComponent {
       );
   }
 
-  public logout() {
-      this.authenticationService.logout();
+  public effect() {
+    document.querySelector('label').removeAttribute('active');
   }
 
 }

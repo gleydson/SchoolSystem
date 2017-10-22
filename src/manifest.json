@@ -1,0 +1,19 @@
+{
+    "lang": "pt-BR",
+    "dir": "ltr",
+    "short_name": "SIGE-EPCTG",
+    "name": "SIGE APP",
+    "description": "This app helps you donate to worthy causes.",
+    "icons": [
+      {
+        "src": "assets/icon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "background_color": "#2196F3",
+    "theme_color": "#2196F3",
+    "display":"fullscreen",
+    "orientation": "portrait",
+    "start_url": "."
+}

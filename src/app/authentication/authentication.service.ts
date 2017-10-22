@@ -1,29 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Administrator } from './../administrator/administrator';
 import { Constants } from './../util/constants.util';
+import { TokenConfig } from './../config/token.config';
+import { LoggedConfig } from './../config/logged.config';
 
 @Injectable()
 export class AuthenticationService {
 
-    private static adminAuthStatus:boolean = false;
-
     public constructor (
-        private http: Http,
-        private router: Router
+        private http : Http,
+        private router : Router,
+        private tokenConfig : TokenConfig,
+        private loggedConfig : LoggedConfig
     ) { }
 
     public login(admin : Administrator) {
-        return this.http.post(`${Constants.URL_BASE}${Constants.URL_LOGIN}`, {username : admin.username, password : admin.password}, this.headers())
+        return this.http.post(`${Constants.URL_LOGIN}`, {username : admin.username, password : admin.password}, this.headers())
         .map((response : Response) => {
             if (response.status == 200) {
-                AuthenticationService.adminAuthStatus = true;
-                this.setLocalToken(response.headers.get("authorization"));
+                this.loggedConfig.setLocalIsLogged("true");
+                this.tokenConfig.setLocalToken(response.headers.get("authorization"));
                 this.router.navigate(['/home']);
             }
         })
@@ -35,30 +37,20 @@ export class AuthenticationService {
     }
 
     public logout() {
-        AuthenticationService.adminAuthStatus = false;
-        this.removerLocalToken();
+        this.loggedConfig.removerLocalIsLogged();
+        this.tokenConfig.removerLocalToken();
         this.router.navigate(['/login']);
     }
-
+    
     public isAuthenticated() : Boolean {
-        return AuthenticationService.adminAuthStatus;
-    }
-
-    public setLocalToken(token) : void {
-        localStorage.setItem('token', JSON.stringify(token));
-    }
-
-    public getLocalToken() : string {
-        return localStorage.getItem('token');
-    }
-
-    public removerLocalToken() : void {
-        localStorage.removeItem('token');
+        if (Boolean(this.loggedConfig.getLocalIsLogged()) == true)
+            return true;
+        return false;
     }
 
     private header() : RequestOptions {
         let headers = new Headers({
-            'Authorization' : this.getLocalToken(),
+            'Authorization' : this.tokenConfig.getLocalToken(),
             'Content-Type'  : 'application/json'
         });
         return new RequestOptions({ headers: headers });

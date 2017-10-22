@@ -1,0 +1,14 @@
+
+* {
+    outline: none;
+}
+
+.login-box {
+    margin-top: 120px;
+    height: 100%;
+    width: 100%;
+}
+
+.recoveryPassword {
+    color: #A99DA9;
+}
