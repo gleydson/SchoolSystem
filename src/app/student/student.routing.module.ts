@@ -12,7 +12,7 @@ const student : Routes = [
         {path : 'new', component : StudentFormComponent},
         {path : ':id', component : StudentDetailComponent},
         {path : ':id/edit', component : StudentFormComponent},
-        {path : 'student-not-found', component : StudentNotFoundComponent}
+        {path : '**', component : StudentNotFoundComponent}
     ]}
 ];
 

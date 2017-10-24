@@ -1,4 +1,3 @@
-import { SchoolClassModule } from './school-class/school-class.module';
 import { BrowserModule }          from '@angular/platform-browser';
 import { NgModule }               from '@angular/core';
 import { FormsModule }            from '@angular/forms';
@@ -33,8 +32,7 @@ import { AppRoutingModule }       from 'app/app.routing.module';
     FormsModule,
     HttpModule,
     MaterializeModule,
-    AppRoutingModule,
-    SchoolClassModule
+    AppRoutingModule
   ],
   providers: [
     AuthGuard,

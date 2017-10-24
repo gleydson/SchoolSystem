@@ -12,7 +12,7 @@ const schoolClass : Routes = [
         {path : 'new', component : SchoolClassFormComponent},
         {path : ':id', component : SchoolClassDetailComponent},
         {path : ':id/edit', component : SchoolClassFormComponent},
-        {path : 'school-class-not-found', component : SchoolClassNotFoundComponent}
+        {path : '**', component : SchoolClassNotFoundComponent}
     ]}
 ];
 

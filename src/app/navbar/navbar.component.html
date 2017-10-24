@@ -1,34 +1,41 @@
 <ul id="dropdown1" class="dropdown-content">
   <li>
-    <a href="#!"><i class="material-icons">person</i> Conta</a>
+    <a href="#!">
+      <i class="material-icons">person</i> Conta</a>
   </li>
   <li class="divider"></li>
   <li>
-    <a (click)="logout()"><i class="tiny material-icons">close</i> Sair</a>
+    <a (click)="logout()">
+      <i class="tiny material-icons">close</i> Sair</a>
   </li>
 </ul>
 <nav>
   <div class="nav-wrapper purple">
     <div class="container">
-    <a href="#" class="brand-logo left">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="active">
-            <a routerLink="/student">Alunos <i class="material-icons left tiny">class</i></a>
-          </li>
-      <li class="active">
-        <a routerLink="/school-class">Turmas <i class="material-icons left tiny">class</i></a>
-      </li>
-      <li>
-        <a href="#"><i class="material-icons left tiny">assignment</i> Relatórios</a>
-      </li>
-      <li>
-        <a class="dropdown-button hide-on-med-and-down" href="" data-activates="dropdown1">
-          <i class="material-icons left tiny">build</i>
+      <a href="#" class="brand-logo left">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li routerLinkActive="active">
+          <a routerLink="/student">Alunos
+            <i class="material-icons left tiny">class</i>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/school-class">Turmas
+            <i class="material-icons left tiny">class</i>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a href="#">
+            <i class="material-icons left tiny">assignment</i> Relatórios</a>
+        </li>
+        <li routerLinkActive="active">
+          <a class="dropdown-button hide-on-med-and-down" href="" data-activates="dropdown1">
+            <i class="material-icons left tiny">build</i>
             Configurações
-          <i class="material-icons right">arrow_drop_down</i>
-        </a>
-      </li>
-    </ul>
-  </div>
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
