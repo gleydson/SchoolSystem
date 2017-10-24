@@ -48,12 +48,4 @@ export class AuthenticationService {
         return false;
     }
 
-    private header() : RequestOptions {
-        let headers = new Headers({
-            'Authorization' : this.tokenConfig.getLocalToken(),
-            'Content-Type'  : 'application/json'
-        });
-        return new RequestOptions({ headers: headers });
-    }
-
 }

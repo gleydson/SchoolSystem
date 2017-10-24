@@ -1,0 +1,15 @@
+<p>
+    Lista de Salas
+  </p>
+  
+  <ul class="collection with-header">
+      <li class="collection-item" *ngFor="let schoolClass of listSchoolClass">
+        <div>{{ schoolClass.name }}
+          <a [routerLink]="[schoolClass.id]" class="secondary-content">
+            <i class="material-icons">send</i>
+          </a>
+        </div>
+      </li>
+   </ul>
+  
+  <router-outlet></router-outlet>

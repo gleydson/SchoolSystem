@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { SchoolClassComponent } from './school-class.component';
+import { SchoolClassNotFoundComponent } from './school-class-not-found.component';
 
-describe('SchoolClassComponent', () => {
-  let component: SchoolClassComponent;
-  let fixture: ComponentFixture<SchoolClassComponent>;
+describe('SchoolClassNotFoundComponent', () => {
+  let component: SchoolClassNotFoundComponent;
+  let fixture: ComponentFixture<SchoolClassNotFoundComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SchoolClassComponent ]
+      declarations: [ SchoolClassNotFoundComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SchoolClassComponent);
+    fixture = TestBed.createComponent(SchoolClassNotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

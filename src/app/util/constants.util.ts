@@ -1,7 +1,7 @@
 export class Constants {
 
-    //end-points
-    public static URL_BASE                  : string = "https://systemepctg.herokuapp.com";
+    //end-points of server
+    private static URL_BASE                 : string = "https://systemepctg.herokuapp.com";
     public static URL_API                   : string = "/api";
     public static URL_LOGIN                 : string = Constants.URL_BASE + "/login";
     public static URL_ADDRESS               : string = Constants.URL_BASE + Constants.URL_API + "/address";
