@@ -26,6 +26,7 @@ export class SchoolClassFormComponent implements OnInit, OnDestroy {
     this.inscription = this.route.params.subscribe(
       (params : any) => {
         this.id = params['id'];
+        console.log(this.id);
         this.schoolClass = this.schoolClassService.read(this.id);
 
         if (this.schoolClass == null) this.router.navigate(['/school-class-not-found']);

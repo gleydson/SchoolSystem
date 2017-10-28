@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -10,10 +10,10 @@ import { SchoolClass } from '../school-class';
   templateUrl: './school-class-show.component.html',
   styleUrls: ['./school-class-show.component.css']
 })
-export class SchoolClassShowComponent implements OnInit {
+export class SchoolClassShowComponent implements OnInit, OnDestroy {
 
   listSchoolClass : SchoolClass[];
-  //inscription : Subscription;
+  inscription : Subscription;
 
   constructor (
     private schoolClassService : SchoolClassService,
@@ -21,15 +21,14 @@ export class SchoolClassShowComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    /*this.inscription = this.schoolClassService.getAll()
+    this.inscription = this.schoolClassService.getAll()
     .subscribe (
       (data) => {this.listSchoolClass = data}
-    );*/
-    this.listSchoolClass = this.schoolClassService.getAll();
+    );
   }
 
   ngOnDestroy() {
-    //this.inscription.unsubscribe;
+    this.inscription.unsubscribe;
   }
 
 }

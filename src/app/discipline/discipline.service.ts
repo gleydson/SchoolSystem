@@ -1,16 +1,16 @@
-import { AnnualNotesService } from './../annual-notes/annual-notes.service';
 import { Injectable } from '@angular/core';
 
 import { Discipline } from './discipline';
 import { AnnualNotes } from './../annual-notes/annual-notes';
+import { AnnualNotesService } from './../annual-notes/annual-notes.service';
 
 @Injectable()
 export class DisciplineService {
 
   private listDisciplines : Discipline[] = [
-    new Discipline(1, "Matemática", null),
-    new Discipline(2, "História", null),
-    new Discipline(3, "Lingua Inglesa", null)
+    new Discipline("Matemática", null),
+    new Discipline("História", null),
+    new Discipline("Lingua Inglesa", null)
   ];
 
   constructor(

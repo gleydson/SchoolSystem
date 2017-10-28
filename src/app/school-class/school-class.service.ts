@@ -1,13 +1,12 @@
-import { Student } from './../student/student';
-import { Discipline } from './../discipline/discipline';
-import { AnnualNotes } from './../annual-notes/annual-notes';
 import { Observable } from 'rxjs';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { SchoolClass } from './school-class';
 import { TokenConfig } from './../config/token.config';
-import { Constants } from 'app/util/constants.util';
+import { Student } from './../student/student';
+import { Discipline } from './../discipline/discipline';
+import { AnnualNotes } from './../annual-notes/annual-notes';import { Constants } from 'app/util/constants.util';
 
 @Injectable()
 export class SchoolClassService {
@@ -21,7 +20,7 @@ export class SchoolClassService {
     this.listSchoolClass = new Array<SchoolClass>();
   }
 
-  public create(schoolClass : SchoolClass) : Observable<SchoolClass> | SchoolClass {
+  public create(schoolClass : SchoolClass) {
     return this.http.post(`${Constants.URL_SCHOOL_CLASS}`, schoolClass, this.header())
     .map((response:Response) => {
         let schoolClass = response.json();
@@ -32,19 +31,15 @@ export class SchoolClassService {
   }
 
   public read(id : number) {
-    /*return this.http.get(`${Constants.URL_SCHOOL_CLASS}${id}`, this.header())
+    return this.http.get(`${Constants.URL_SCHOOL_CLASS}${id}`, this.header())
     .map((response:Response) => {
       let schoolClass : SchoolClass = response.json();
-      return new SchoolClass(schoolClass.id, schoolClass.name, schoolClass.numberOfStudents);
-    })
-    .catch((error:Response) => Observable.throw(error));*/
-    for (let schoolClass of this.listSchoolClass)
-      if (schoolClass.id == id)
       return schoolClass;
-    return null;
+    })
+    .catch((error:Response) => Observable.throw(error));
   }
 
-  public update(schoolClass : SchoolClass) : Observable<SchoolClass> | SchoolClass {
+  public update(schoolClass : SchoolClass) {
     return this.http.put(`${Constants.URL_SCHOOL_CLASS}`, schoolClass, this.header())
     .map((response:Response) => {
         let sc = response.json();
@@ -68,16 +63,15 @@ export class SchoolClassService {
   }
 
   public getAll() {
-    /*return this.http.get(`${Constants.URL_SCHOOL_CLASS}`, this.header())
+    return this.http.get(`${Constants.URL_SCHOOL_CLASS}`, this.header())
     .map((response : Response) => {
         let listSchoolClass : SchoolClass[] = [];
         for(let schoolClass of response.json())
-            listSchoolClass.push(new SchoolClass(schoolClass.id, schoolClass.name, schoolClass.numberOfStudents));
+            listSchoolClass.push(schoolClass);
         this.listSchoolClass = listSchoolClass;
         return listSchoolClass;
     })
-    .catch((error : Response) => Observable.throw(error));*/
-    return this.listSchoolClass;
+    .catch((error : Response) => Observable.throw(error));
   }
 
   private header() : RequestOptions {

@@ -6,7 +6,7 @@ import { AnnualNotes } from './annual-notes';
 export class AnnualNotesService {
 
   private listAnnualNotes : AnnualNotes[] = [
-    new AnnualNotes(1)
+    new AnnualNotes()
   ];
 
   constructor() { }
