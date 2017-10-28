@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { SchoolClassService } from '../school-class.service';
@@ -16,8 +15,7 @@ export class SchoolClassShowComponent implements OnInit, OnDestroy {
   inscription : Subscription;
 
   constructor (
-    private schoolClassService : SchoolClassService,
-    private route : ActivatedRoute
+    private schoolClassService : SchoolClassService
   ) { }
 
   ngOnInit() {

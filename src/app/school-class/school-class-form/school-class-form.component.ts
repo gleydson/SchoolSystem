@@ -13,8 +13,8 @@ import { SchoolClass } from '../school-class';
 export class SchoolClassFormComponent implements OnInit, OnDestroy {
 
   schoolClass : SchoolClass;
-  id : number;
-  inscription : Subscription;
+  inscriptionOne : Subscription;
+  inscriptionTwo : Subscription;
 
   constructor(
     private schoolClassService : SchoolClassService,
@@ -23,18 +23,18 @@ export class SchoolClassFormComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.inscription = this.route.params.subscribe(
+    this.inscriptionOne = this.route.params.subscribe(
       (params : any) => {
-        this.id = params['id'];
-        console.log(this.id);
-        this.schoolClass = this.schoolClassService.read(this.id);
-
+        this.inscriptionTwo = this.schoolClassService.read(params['id']).subscribe(
+          (data) => this.schoolClass = data
+        );
         if (this.schoolClass == null) this.router.navigate(['/school-class-not-found']);
       }
     )
   }
 
   ngOnDestroy() {
-    this.inscription.unsubscribe;
+    this.inscriptionOne.unsubscribe;
+    this.inscriptionTwo.unsubscribe;
   }
 }
