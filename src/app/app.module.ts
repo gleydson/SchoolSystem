@@ -17,13 +17,6 @@ import { HomeComponent }          from './home/home.component';
 import { NavbarComponent }        from './navbar/navbar.component';
 import { PageNotFoundComponent }  from './page-not-found/page-not-found.component';
 import { AppRoutingModule }       from './app.routing.module';
-import { DisciplineComponent }    from './discipline/discipline.component';
-import { AnnualNotesComponent }   from './annual-notes/annual-notes.component';
-import { RelativeComponent }      from './relative/relative.component';
-import { SchoolYearComponent }    from './school-year/school-year.component';
-import { AddressComponent }       from './address/address.component';
-import { TeacherComponent }       from './teacher/teacher.component';
-import { ContactInformationComponent } from './contact-information/contact-information.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +25,7 @@ import { ContactInformationComponent } from './contact-information/contact-infor
     AdministratorComponent,
     HomeComponent,
     NavbarComponent,
-    PageNotFoundComponent,
-    DisciplineComponent,
-    AnnualNotesComponent,
-    RelativeComponent,
-    SchoolYearComponent,
-    AddressComponent,
-    TeacherComponent,
-    ContactInformationComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
