@@ -2,11 +2,14 @@ import { AnnualNotes } from './../annual-notes/annual-notes';
 
 export class Discipline {
 
+    private _id : number;
+
     constructor(
-        private _id : number,
         private _name : string,
         private _annual_notes : AnnualNotes
-    ) { }
+    ) {
+        this._id = null;
+    }
 
     get id() {
         return this._id;

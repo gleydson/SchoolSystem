@@ -2,13 +2,14 @@ import { SchoolClass } from './../school-class/school-class';
 
 export class SchoolYear {
 
+    private _id : number;
     private _listSchoolClasses : Array<SchoolClass>;
 
     constructor(
-        private _id : number,
         private _year : number,
         private _status : string
     ) {
+        this._id = null;
         this._listSchoolClasses = new Array<SchoolClass>();
     }
 

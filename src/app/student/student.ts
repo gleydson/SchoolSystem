@@ -4,16 +4,17 @@ import { ContactInformation } from './../contact-information/contact-information
 
 export class Student {
 
+    private _id : number;
     private _contactInformation : ContactInformation;
     private _address : Address;
     private _schoolClass : SchoolClass;
 
     constructor(
-        private _id : number,
         private _registry : string,
         private _name : string,
         private _dateOfBirth : Date
     ) {
+        this._id = null;
         this._contactInformation = null;
         this._address = null;
         this._schoolClass = null;

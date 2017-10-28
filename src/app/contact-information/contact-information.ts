@@ -1,12 +1,13 @@
 export class ContactInformation {
 
+    private _id : number;
     private _email : string;
 
     constructor(
-        private _id : number,
         private _phoneNumberOne : string,
         private _phoneNumberTwo : string
     ) {
+        this._id = null;
         this._email = null;
     }
 

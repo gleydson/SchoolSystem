@@ -1,14 +1,17 @@
 export class Address {
 
+    private _id : number;
+
     constructor(
-        private _id : number,
         private _street : string,
         private _houseNumber : number,
     	private _complement : string,
         private _district : string,
         private _city : string,
         private _state : string
-    ) { }
+    ) {
+        this._id = null;
+    }
 
     get id() {
         return this._id;

@@ -3,15 +3,16 @@ import { ContactInformation } from './../contact-information/contact-information
 
 export class Relative {
 
+    private _id : number;
     private _contactInformation : ContactInformation;
     private _address : Address;
 
     constructor(
-        private _id : number,
         private _name : string,
         private _dateOfBirth : Date,
         private _kinship : string
     ) {
+        this._id = null;
         this._contactInformation = null;
         this._address = null;
     }

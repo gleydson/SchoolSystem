@@ -4,15 +4,16 @@ import { ContactInformation } from './../contact-information/contact-information
 
 export class Teacher {
 
+    private _id : number;
     private _contactInformation : ContactInformation;
     private _address : Address;
     private _listClasses : Array<SchoolClass>;
 
     constructor(
-        private _id : number,
         private _name : string,
         private _dateOfBirth : Date,
     ) {
+        this._id = null;
         this._contactInformation = null;
         this._address = null;
         this._listClasses = new Array<SchoolClass>();

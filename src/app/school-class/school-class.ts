@@ -3,14 +3,15 @@ import { Discipline } from './../discipline/discipline';
 
 export class SchoolClass {
 
+    private _id : number;
     private _listDisciplines : Array<Discipline>;
     private _listStudents : Array<Student>;
 
     constructor(
-        private _id : number,
         private _name : string,
         private _numberOfStudents : number
     ) {
+        this._id = null;
         this._listDisciplines = new Array<Discipline>();
         this._listStudents = new Array<Student>();
     }

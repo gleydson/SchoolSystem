@@ -1,13 +1,13 @@
 export class AnnualNotes {
 
+    private _id : number;
     private _bim1 : number;
     private _bim2 : number;
     private _bim3 : number;
     private _bim4 : number;
 
-    constructor(
-        private _id : number
-    ) {
+    constructor() {
+        this._id = null;
         this._bim1 = null;
         this._bim2 = null;
         this._bim3 = null;
