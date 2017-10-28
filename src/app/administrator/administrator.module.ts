@@ -1,10 +1,22 @@
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AdministratorService } from './administrator.service';
+import { AdministratorRoutingModule } from './administrator.routing.module';
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    HttpModule,
+    AdministratorRoutingModule
   ],
-  declarations: []
+  exports: [],
+  declarations: [],
+  providers: [
+    AdministratorService
+  ]
 })
 export class AdministratorModule { }
