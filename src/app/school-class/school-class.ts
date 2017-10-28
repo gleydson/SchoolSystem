@@ -2,13 +2,18 @@ import { Student } from './../student/student';
 import { Discipline } from './../discipline/discipline';
 
 export class SchoolClass {
+
+    private _listDisciplines : Array<Discipline>;
+    private _listStudents : Array<Student>;
+
     constructor(
         private _id : number,
         private _name : string,
-        private _numberOfStudents : number,
-        private _listDisciplines : Array<Discipline>,
-        private _listStudents : Array<Student>
-    ) { }
+        private _numberOfStudents : number
+    ) {
+        this._listDisciplines = new Array<Discipline>();
+        this._listStudents = new Array<Student>();
+    }
 
     get id() : number {
         return this._id;
