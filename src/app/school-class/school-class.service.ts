@@ -12,22 +12,20 @@ import { Constants } from 'app/util/constants.util';
 @Injectable()
 export class SchoolClassService {
 
-  private listSchoolClass : SchoolClass[] = [
-    new SchoolClass(1, "1º ano", 22, null, null),
-    new SchoolClass(2, "2º ano", 22, null, null),
-    new SchoolClass(3, "3º ano", 22, null, null),
-  ];
+  private listSchoolClass : Array<SchoolClass>;
 
   public constructor (
     private http : Http,
     private tokenConfig : TokenConfig
-  ) { }
+  ) {
+    this.listSchoolClass = new Array<SchoolClass>();
+  }
 
   public create(schoolClass : SchoolClass) : Observable<SchoolClass> | SchoolClass {
     return this.http.post(`${Constants.URL_SCHOOL_CLASS}`, schoolClass, this.header())
     .map((response:Response) => {
         let schoolClass = response.json();
-        this.listSchoolClass.push(new SchoolClass(schoolClass.id, schoolClass.name, schoolClass.numberOfStudents, null, null));
+        this.listSchoolClass.push(new SchoolClass(schoolClass.name, schoolClass.numberOfStudents));
         return schoolClass;
     })
     .catch((error: Response) => Observable.throw(error));
@@ -56,7 +54,7 @@ export class SchoolClassService {
                 this.listSchoolClass[i] = sc;
             }
         return sc;
-     })
+    })
     .catch((error: Response) => Observable.throw(error));
   }
 
