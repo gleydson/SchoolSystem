@@ -7,7 +7,12 @@ export class AnnualNotes {
 
     constructor(
         private _id : number
-    ) { }
+    ) {
+        this._bim1 = null;
+        this._bim2 = null;
+        this._bim3 = null;
+        this._bim4 = null;
+    }
 
     get id() {
         return this._id;
