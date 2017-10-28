@@ -10,7 +10,7 @@ import { AppComponent }           from './app.component';
 import { LoggedConfig }           from './config/logged.config';
 import { TokenConfig }            from './config/token.config'
 import { AuthGuard }              from './guard/auth.guard';
-import { AuthenticationService }  from './authentication/authentication.service';
+import { AuthenticationService }  from './login/authentication.service';
 import { LoginComponent }         from './login/login.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { HomeComponent }          from './home/home.component';

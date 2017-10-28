@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AuthenticationService } from '../authentication/authentication.service';
+import { AuthenticationService } from './authentication.service';
 import { Administrator } from './../administrator/administrator';
 
 @Component({
@@ -14,7 +14,7 @@ export class LoginComponent {
   private password:string = "";
 
   public constructor(private authenticationService : AuthenticationService) { }
-  
+
   public login() {
       this.authenticationService.login(new Administrator(this.username, this.password))
       .subscribe(
