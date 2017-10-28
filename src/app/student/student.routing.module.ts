@@ -20,4 +20,4 @@ const student : Routes = [
     imports : [RouterModule.forChild(student)],
     exports : [RouterModule]
 })
-export class SchoolClassRoutingModule { }
+export class StudentRoutingModule { }

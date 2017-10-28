@@ -1,0 +1,12 @@
+nav.clean {
+    background: none;
+    box-shadow: none;
+}
+
+nav.clean .breadcrumb {
+    color: black;
+}
+
+nav.clean .breadcrumb:before {
+    color: rgba(0, 0, 0, 0.7);
+}

@@ -10,7 +10,7 @@ import { SchoolClass } from '../school-class';
   templateUrl: './school-class-detail.component.html',
   styleUrls: ['./school-class-detail.component.css']
 })
-export class SchoolClassDetailComponent implements OnInit, OnDestroy {
+export class SchoolClassDetailComponent implements OnInit {
 
   schoolClass : any;
   id : number;
@@ -23,7 +23,7 @@ export class SchoolClassDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.inscription = this.route.params.subscribe(
+    this.inscription = this.route.params.subscribe (
       (params : any) => {
         this.id = params['id'];
         this.schoolClass = this.schoolClassService.read(this.id);
@@ -37,8 +37,5 @@ export class SchoolClassDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['/school-class', this.schoolClass.id, 'edit'])
   }
 
-  ngOnDestroy() {
-    this.inscription.unsubscribe;
-  }
 
 }

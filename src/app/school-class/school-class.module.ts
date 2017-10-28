@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { SchoolClassService } from './school-class.service';
 import { SchoolClassDetailComponent } from './school-class-detail/school-class-detail.component';
 import { SchoolClassFormComponent } from './school-class-form/school-class-form.component';
-import { SchoolClassRoutingModule } from 'app/school-class/school-class.routing.module';
+import { SchoolClassRoutingModule } from './school-class.routing.module';
 import { SchoolClassNotFoundComponent } from './school-class-not-found/school-class-not-found.component';
-import { SchoolClassHomeComponent } from 'app/school-class/school-class-home/school-class-home.component';
-
+import { SchoolClassShowComponent } from './school-class-show/school-class-show.component';
+import { SchoolClassBreadcrumbsComponent } from './school-class-breadcrumbs/school-class-breadcrumbs.component';
+import { SchoolClassComponent } from './school-class.component';
 
 @NgModule({
   imports: [
@@ -20,10 +21,12 @@ import { SchoolClassHomeComponent } from 'app/school-class/school-class-home/sch
   ],
   exports: [],
   declarations: [
-    SchoolClassHomeComponent,
+    SchoolClassComponent,
+    SchoolClassShowComponent,
     SchoolClassFormComponent,
     SchoolClassDetailComponent,
-    SchoolClassNotFoundComponent
+    SchoolClassNotFoundComponent,
+    SchoolClassBreadcrumbsComponent,
   ],
   providers: [
     SchoolClassService

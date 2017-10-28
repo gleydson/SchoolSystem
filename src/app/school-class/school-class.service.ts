@@ -1,3 +1,6 @@
+import { Student } from './../student/student';
+import { Discipline } from './../discipline/discipline';
+import { AnnualNotes } from './../annual-notes/annual-notes';
 import { Observable } from 'rxjs';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
@@ -10,8 +13,9 @@ import { Constants } from 'app/util/constants.util';
 export class SchoolClassService {
 
   private listSchoolClass : SchoolClass[] = [
-    new SchoolClass(1, 't1', 10),
-    new SchoolClass(2, 't2', 10)
+    new SchoolClass(1, "1º ano", 22, null, null),
+    new SchoolClass(2, "2º ano", 22, null, null),
+    new SchoolClass(3, "3º ano", 22, null, null),
   ];
 
   public constructor (
@@ -23,7 +27,7 @@ export class SchoolClassService {
     return this.http.post(`${Constants.URL_SCHOOL_CLASS}`, schoolClass, this.header())
     .map((response:Response) => {
         let schoolClass = response.json();
-        this.listSchoolClass.push(new SchoolClass(schoolClass.id, schoolClass.name, schoolClass.numberOfStudents));
+        this.listSchoolClass.push(new SchoolClass(schoolClass.id, schoolClass.name, schoolClass.numberOfStudents, null, null));
         return schoolClass;
     })
     .catch((error: Response) => Observable.throw(error));

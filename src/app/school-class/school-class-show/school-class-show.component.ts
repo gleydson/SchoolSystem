@@ -6,14 +6,14 @@ import { SchoolClassService } from '../school-class.service';
 import { SchoolClass } from '../school-class';
 
 @Component({
-  selector: 'app-school-class-home',
-  templateUrl: './school-class-home.component.html',
-  styleUrls: ['./school-class-home.component.css']
+  selector: 'app-school-class-show',
+  templateUrl: './school-class-show.component.html',
+  styleUrls: ['./school-class-show.component.css']
 })
-export class SchoolClassHomeComponent implements OnInit {
+export class SchoolClassShowComponent implements OnInit {
 
   listSchoolClass : SchoolClass[];
-  inscription : Subscription;
+  //inscription : Subscription;
 
   constructor (
     private schoolClassService : SchoolClassService,
@@ -29,7 +29,7 @@ export class SchoolClassHomeComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.inscription.unsubscribe;
+    //this.inscription.unsubscribe;
   }
-  
+
 }

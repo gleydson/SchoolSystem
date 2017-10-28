@@ -10,7 +10,7 @@ import { SchoolClass } from '../school-class';
   templateUrl: './school-class-form.component.html',
   styleUrls: ['./school-class-form.component.css']
 })
-export class SchoolClassFormComponent implements OnInit {
+export class SchoolClassFormComponent implements OnInit, OnDestroy {
 
   schoolClass : SchoolClass;
   id : number;

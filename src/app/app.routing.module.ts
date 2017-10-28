@@ -1,5 +1,5 @@
 import { ModuleWithProviders } from '@angular/core';
-import { RouterModule, Routes, LoadChildren } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './home/home.component';
