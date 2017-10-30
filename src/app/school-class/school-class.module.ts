@@ -8,8 +8,6 @@ import { SchoolClassDetailComponent } from './school-class-detail/school-class-d
 import { SchoolClassFormComponent } from './school-class-form/school-class-form.component';
 import { SchoolClassRoutingModule } from './school-class.routing.module';
 import { SchoolClassNotFoundComponent } from './school-class-not-found/school-class-not-found.component';
-import { SchoolClassShowComponent } from './school-class-show/school-class-show.component';
-import { SchoolClassBreadcrumbsComponent } from './school-class-breadcrumbs/school-class-breadcrumbs.component';
 import { SchoolClassComponent } from './school-class.component';
 
 @NgModule({
@@ -19,14 +17,17 @@ import { SchoolClassComponent } from './school-class.component';
     HttpModule,
     SchoolClassRoutingModule
   ],
-  exports: [],
-  declarations: [
+  exports: [
     SchoolClassComponent,
-    SchoolClassShowComponent,
     SchoolClassFormComponent,
     SchoolClassDetailComponent,
-    SchoolClassNotFoundComponent,
-    SchoolClassBreadcrumbsComponent,
+    SchoolClassNotFoundComponent
+  ],
+  declarations: [
+    SchoolClassComponent,
+    SchoolClassFormComponent,
+    SchoolClassDetailComponent,
+    SchoolClassNotFoundComponent
   ],
   providers: [
     SchoolClassService

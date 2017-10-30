@@ -1,4 +1,8 @@
+import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+
+import { SchoolClassService } from './school-class.service';
+import { SchoolClass } from './school-class';
 
 @Component({
   selector: 'app-school-class',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolClassComponent implements OnInit {
 
-  constructor() { }
+  listSchoolClass : SchoolClass[];
+  inscription : Subscription;
+
+  constructor (
+    private schoolClassService : SchoolClassService
+  ) { }
 
   ngOnInit() {
+    this.inscription = this.schoolClassService.getAll()
+    .subscribe (
+      (data) => {this.listSchoolClass = data}
+    );
+  }
+
+  ngOnDestroy() {
+    this.inscription.unsubscribe;
   }
 
 }

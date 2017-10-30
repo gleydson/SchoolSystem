@@ -1,4 +1,29 @@
-<app-school-class-breadcrumbs></app-school-class-breadcrumbs>
+
+<ul id="options" class="dropdown-content">
+    <li><a href="#!"><i class="material-icons">close</i>Remover turma</a></li>
+    <li><a href="#!"><i class="material-icons">edit</i>Editar dados da turma</a></li>
+</ul>
+
+<div class="row" *ngIf="!form" >
+    <div class="card horizontal" *ngFor="let schoolClass of listSchoolClass">
+        <div class="card-stacked">
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{ schoolClass.name }}
+                    <a href="#!" data-activates="options" data-hover="true">
+                        <i class="material-icons right">more_vert</i>
+                    </a>
+                </span>
+                <span class="card-text">
+                    Gleydson Rodrigues
+                </span>
+            </div>
+            <div class="card-action">
+                <a [routerLink]="['/school-class', schoolClass.id]">Ver alunos</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <router-outlet></router-outlet>
 
 <div class="fixed-action-btn">

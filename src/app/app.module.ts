@@ -3,6 +3,7 @@ import { NgModule }               from '@angular/core';
 import { FormsModule }            from '@angular/forms';
 import { HttpModule }             from '@angular/http';
 import { ModuleWithProviders }    from '@angular/core';
+import {Ng2BreadcrumbModule, BreadcrumbService} from 'ng2-breadcrumb/ng2-breadcrumb';
 
 import { MaterializeModule }      from 'angular2-materialize';
 
@@ -32,13 +33,15 @@ import { AppRoutingModule }       from './app.routing.module';
     FormsModule,
     HttpModule,
     MaterializeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Ng2BreadcrumbModule
   ],
   providers: [
     AuthGuard,
     AuthenticationService,
     LoggedConfig,
-    TokenConfig
+    TokenConfig,
+    BreadcrumbService
   ],
   bootstrap: [AppComponent]
 })

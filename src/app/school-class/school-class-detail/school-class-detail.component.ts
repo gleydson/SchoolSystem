@@ -12,7 +12,7 @@ import { SchoolClass } from '../school-class';
 })
 export class SchoolClassDetailComponent implements OnInit {
 
-  schoolClass : any;
+  schoolClass : SchoolClass;
   id : number;
   inscription : Subscription;
 
@@ -26,9 +26,16 @@ export class SchoolClassDetailComponent implements OnInit {
     this.inscription = this.route.params.subscribe (
       (params : any) => {
         this.id = params['id'];
-        this.schoolClass = this.schoolClassService.read(this.id);
+        this.schoolClassService.read(this.id).subscribe (
+          (data) => {
+            this.schoolClass = data
+          },
+          (error) => {
+            this.router.navigate(['/school-class-not-found'])
+          }
+        )
 
-        if (this.schoolClass == null || this.schoolClass === null) this.router.navigate(['/school-class-not-found']);
+        //if (this.schoolClass == null || this.schoolClass === null) this.router.navigate(['/school-class-not-found']);
       }
     )
   }

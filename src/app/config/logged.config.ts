@@ -1,5 +1,5 @@
 export class LoggedConfig {
-    
+
     public setLocalIsLogged(is_logged : string) : void {
         localStorage.setItem('is_logged', JSON.stringify(is_logged));
     }

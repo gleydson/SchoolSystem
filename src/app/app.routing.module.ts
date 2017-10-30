@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guard/auth.guard';
 
 const APP_ROUTE: Routes = [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     {
         path: 'address',
         loadChildren: 'app/address/address.module#AddressModule',
@@ -60,7 +61,6 @@ const APP_ROUTE: Routes = [
     },
     { path: 'login', component: LoginComponent},
     { path: 'home', component: HomeComponent},
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent}
 ];
 

@@ -1,7 +1,7 @@
 export class TokenConfig {
-    
+
     public setLocalToken(token : string) : void {
-        localStorage.setItem('token', JSON.stringify(token));
+        localStorage.setItem('token', token);
     }
 
     public getLocalToken() : string {

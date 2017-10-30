@@ -21,7 +21,7 @@ export class SchoolClassService {
   }
 
   public create(schoolClass : SchoolClass) {
-    return this.http.post(`${Constants.URL_SCHOOL_CLASS}`, schoolClass, this.header())
+    return this.http.post(`${Constants.URL_SCHOOL_CLASS}`, { name : schoolClass.name, numberOfStudents: schoolClass.numberOfStudents }, this.header())
     .map((response:Response) => {
         let schoolClass = response.json();
         this.listSchoolClass.push(new SchoolClass(schoolClass.name, schoolClass.numberOfStudents));
